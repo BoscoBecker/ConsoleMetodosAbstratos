@@ -9,15 +9,15 @@ namespace ConsoleMetodosAbstratos
     {
         static void Main()
         {
-            List<Shape> list = new List<Shape>();
+            List<Shape> list = [];
             Console.WriteLine("Enter number of the shapes:");
             int numShapes = int.Parse(Console.ReadLine());
-            for (int i = 0; i <= numShapes; i++)
+            for (int i = 0; i <= numShapes -1; i++)
             {
                 Console.WriteLine($"Shape #{i} data: ");
                 Console.Write("Rectangle(r) ou circle(c) (r/c) ?");
                 char ch = char.Parse(Console.ReadLine());
-                Console.Write("Color Black/Blue/Red, informe uma dessas cores:");
+                Console.Write("Color BLACK/BLUE/RED, informe uma dessas cores:");
                 Color color  = Enum.Parse<Color>(Console.ReadLine());
                 if (ch.Equals('r'))
                 {
@@ -33,6 +33,21 @@ namespace ConsoleMetodosAbstratos
                     list.Add(new Circle(radius, color));                
                 }
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Shapes areas Found: ");
+            foreach (Shape shape in list) {
+                Console.WriteLine( shape.Area().ToString("F2",CultureInfo.InvariantCulture));
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Rectangles ares found: ");
+            foreach (Rectangle rectangle in list)
+            {
+                Console.WriteLine(
+                        rectangle.Area().ToString("F2", CultureInfo.InvariantCulture);
+            }
+            
         }
 
     }
