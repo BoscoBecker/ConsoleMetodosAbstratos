@@ -19,18 +19,20 @@ namespace ConsoleMetodosAbstratos
                 char ch = char.Parse(Console.ReadLine());
                 Console.Write("Color Black/Blue/Red, informe uma dessas cores:");
                 Color color  = Enum.Parse<Color>(Console.ReadLine());
-                if (ch.Equals('r') ){
+                if (ch.Equals('r'))
+                {
                     Console.Write("Width: ");
-                    double width = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+                    double width = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                     Console.Write("heigth: ");
-                    double heigth = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+                    double heigth = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    list.Add(new Rectangle(width, heigth, color));
                 }
-
-
+                else {
+                    Console.WriteLine("Radius:");
+                    double radius = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    list.Add(new Circle(radius, color));                
+                }
             }
-
-
-
         }
 
     }
